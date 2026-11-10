@@ -25,17 +25,21 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300 ${
-        isScrolled
+      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300 ${isScrolled
           ? 'border-sky-600 bg-sky-700 py-3 shadow-sm'
           : 'border-sky-600/50 bg-sky-700/95 py-4 backdrop-blur-sm'
-      }`}
+        }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-5">
           <a href="#hero" onClick={closeMenu} className="flex shrink-0 items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-400 font-bold text-sky-950 shadow-md shadow-sky-950/20">
-              DN
+              <img
+                src={personalInfo.photo}
+                alt={`Portrait de ${personalInfo.name}`}
+                className="h-full w-full object-cover"
+                onError={() => setPhotoUnavailable(true)}
+              />
             </span>
             <span className="font-bold tracking-tight text-white">{personalInfo.name}</span>
           </a>
